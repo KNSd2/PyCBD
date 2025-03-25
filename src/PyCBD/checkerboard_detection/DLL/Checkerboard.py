@@ -353,12 +353,13 @@ class Checkerboard(object):
 
     def __init__(self):
         _Checkerboard.Checkerboard_swiginit(self, _Checkerboard.new_Checkerboard())
+    __swig_destroy__ = _Checkerboard.delete_Checkerboard
 
-    def array_to_image(self, array, width, height):
-        return _Checkerboard.Checkerboard_array_to_image(self, array, width, height)
+    def array_to_image(self, sizex, h, w):
+        return _Checkerboard.Checkerboard_array_to_image(self, sizex, h, w)
 
-    def array_norm_to_image(self, array, width, height):
-        return _Checkerboard.Checkerboard_array_norm_to_image(self, array, width, height)
+    def array_norm_to_image(self, sizex, h, w):
+        return _Checkerboard.Checkerboard_array_norm_to_image(self, sizex, h, w)
 
     def load_image(self, name):
         return _Checkerboard.Checkerboard_load_image(self, name)
@@ -401,7 +402,6 @@ class Checkerboard(object):
 
     def plot_boards(self):
         return _Checkerboard.Checkerboard_plot_boards(self)
-    __swig_destroy__ = _Checkerboard.delete_Checkerboard
 
 # Register Checkerboard in _Checkerboard:
 _Checkerboard.Checkerboard_swigregister(Checkerboard)

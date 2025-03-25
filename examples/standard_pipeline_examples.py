@@ -13,12 +13,12 @@ import cv2
 # Load the image.
 thermal_image_file = 'examples/images/thermal.tiff'
 flare_image_file = 'examples/images/flare.jpg'
-warped_image_file = 'examples/images/warped.jpg'
-image = cv2.imread(thermal_image_file)
+warped_image_file = r'C:\Users\Seppe\PycharmProjects\PyCBD\examples\images\broken.jpg'
+image = cv2.imread(warped_image_file)
 
 # Create an instance of the detector
 detection_pipeline = CBDPipeline()
-
+detection_pipeline.checkerboard_detector.detector.show_processing = False
 # Perform detection
 # You can optionally give it the checkerboard size, so you'll know whether the coordinates are absolute or relative.
 result, board_uv, board_xy = detection_pipeline.detect_checkerboard(image)

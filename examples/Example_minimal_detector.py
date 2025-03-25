@@ -1,8 +1,10 @@
 """Standard examples for using the pipeline."""
+import matplotlib
 
 from PyCBD.pipelines import CBDPipeline
 import matplotlib.pyplot as plt
 import matplotlib.transforms as mtransforms
+matplotlib.use('TkAgg')
 import cv2
 
 
@@ -17,6 +19,7 @@ image = cv2.imread(warped_image_file)
 
 # Create an instance of the detector
 detection_pipeline = CBDPipeline()
+
 detection_pipeline.checkerboard_detector.detector.show_processing = False
 # Perform detection
 # You can optionally give it the checkerboard size, so you'll know whether the coordinates are absolute or relative.

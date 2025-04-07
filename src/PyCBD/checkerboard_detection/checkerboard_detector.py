@@ -2,11 +2,14 @@ import numpy as np
 import cv2
 import numpy.typing as npt
 from typing import Tuple
+import sys
 try:
     from PyCBD.checkerboard_detection.DLL.Checkerboard import Checkerboard
 except ImportError as e:
-    raise ImportError("You are probably using an incompatible version of python. Module was compiled for Python 3.8 & "
-                      "3.10").with_traceback(e.__traceback__)
+    version = f"{sys.version_info.major}.{sys.version_info.minor}"
+    raise ImportError(
+        f"Checkerboard DLL import failed. You're using Python {version}, but the module was compiled for Python 3.8 / 3.10 or 3.11."
+    ).with_traceback(e.__traceback__)
 
 
 class CheckerboardDetector:

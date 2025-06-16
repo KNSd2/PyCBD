@@ -1,4 +1,13 @@
 """Standard examples for using the pipeline."""
+import sys
+import os
+
+# Get the absolute path to the root of the project
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src'))
+
+# Add the src folder to the Python path
+sys.path.insert(0, ROOT_DIR)
+
 import matplotlib
 
 from PyCBD.pipelines import CBDPipeline
@@ -16,6 +25,13 @@ import cv2
 
 warped_image_file = r'..\examples\images\broken.jpg'
 image = cv2.imread(warped_image_file)
+
+if image is None:
+    fallback_path = r'examples\images\broken.jpg'
+    image = cv2.imread(fallback_path)
+
+if image is None:
+    raise FileNotFoundError("Could not load the image from either path.")
 
 # Create an instance of the detector
 detection_pipeline = CBDPipeline()
